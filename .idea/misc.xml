@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/drawable-v24/ic_baseline_view_stream_24.xml" value="0.22962962962962963" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/drawable/ic_camera.xml" value="0.21944444444444444" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/activity_detail_video.xml" value="0.2128623188405797" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/activity_image_detail.xml" value="0.2128623188405797" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/activity_main.xml" value="0.21041666666666667" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/activity_splash_screen.xml" value="0.20018115942028986" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/activity_video_detail.xml" value="0.2128623188405797" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/fragment_image.xml" value="0.2245961438249088" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/fragment_video.xml" value="0.17300724637681159" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/item_grid.xml" value="0.11637931034482758" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/item_grid_image.xml" value="0.10916919959473151" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/item_list.xml" value="0.2128623188405797" />
+        <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/menu/botnav.xml" value="0.22447916666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="SuppressABINotification">
+    <option name="modulesWithSuppressedNotConfigured">
+      <set>
+        <option value="Pexels.app" />
+      </set>
+    </option>
+  </component>
+</project>
