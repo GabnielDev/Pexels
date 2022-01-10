@@ -15,15 +15,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pexels.R
 import com.example.pexels.adapter.VideoGridAdapter
 import com.example.pexels.adapter.VideoListAdapter
 import com.example.pexels.data.VideosItem
-import com.example.pexels.databinding.FragmentImageBinding
 import com.example.pexels.databinding.FragmentVideoBinding
 import com.example.pexels.view.VideoDetailActivity
 import com.example.pexels.viewmodel.VideoViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class VideoFragment : Fragment(), VideoGridAdapter.OnItemClickCallback,
     VideoListAdapter.OnItemClickCallback {
 

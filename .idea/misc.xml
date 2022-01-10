@@ -16,6 +16,10 @@
         <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/item_grid_image.xml" value="0.10916919959473151" />
         <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/layout/item_list.xml" value="0.2128623188405797" />
         <entry key="..\:/Project/Android Studio/Kotlin/mvvm/Pexels/app/src/main/res/menu/botnav.xml" value="0.22447916666666667" />
+        <entry key="..\:/Project/mvvm/Pexels/app/src/main/res/layout/activity_image_detail.xml" value="0.12771739130434784" />
+        <entry key="..\:/Project/mvvm/Pexels/app/src/main/res/layout/activity_main.xml" value="0.12771739130434784" />
+        <entry key="..\:/Project/mvvm/Pexels/app/src/main/res/layout/activity_video_detail.xml" value="0.12771739130434784" />
+        <entry key="..\:/Project/mvvm/Pexels/app/src/main/res/layout/fragment_image.xml" value="0.1" />
       </map>
     </option>
   </component>

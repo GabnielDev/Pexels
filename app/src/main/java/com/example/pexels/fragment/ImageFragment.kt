@@ -2,8 +2,6 @@ package com.example.pexels.fragment
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,14 +15,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pexels.R
 import com.example.pexels.adapter.ImageGridAdapter
 import com.example.pexels.adapter.ImageListAdapter
 import com.example.pexels.data.PhotosItem
 import com.example.pexels.databinding.FragmentImageBinding
 import com.example.pexels.view.ImageDetailActivity
 import com.example.pexels.viewmodel.ImageViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ImageFragment : Fragment(), ImageGridAdapter.OnItemClickCallback,
     ImageListAdapter.OnItemClickCallback {
 
@@ -32,7 +31,7 @@ class ImageFragment : Fragment(), ImageGridAdapter.OnItemClickCallback,
     private val binding get() = _binding!!
     private lateinit var imageGridAdapter: ImageGridAdapter
     private lateinit var imageListAdapter: ImageListAdapter
-    private lateinit var imageViewModel: ImageViewModel
+    private lateinit var imageViewModel : ImageViewModel
 
     private var data: MutableList<PhotosItem?> = ArrayList()
     private var page = 1
@@ -51,11 +50,12 @@ class ImageFragment : Fragment(), ImageGridAdapter.OnItemClickCallback,
         _binding = FragmentImageBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        setAdapter()
         setUpViewModel()
+        setAdapter()
         getData()
         setClick()
         searchImage()
+
 
         return view
     }
@@ -143,14 +143,14 @@ class ImageFragment : Fragment(), ImageGridAdapter.OnItemClickCallback,
         imageViewModel.getImage(page).observe(viewLifecycleOwner, {
             nextPage = !it.isNullOrEmpty()
             if (page == 0) {
-                data = it
-                isEmpty = it.isEmpty()
+                data = it!!
+                isEmpty = it!!.isEmpty()
                 binding.lineNodata.visibility = VISIBLE
                 Toast.makeText(context, "$isEmpty", Toast.LENGTH_SHORT).show()
             } else {
                 binding.lineNodata.visibility = GONE
                 binding.rvImage.visibility = VISIBLE
-                data.addAll(it)
+                data.addAll(it!!)
             }
 
             if (isGrid) imageGridAdapter.setData(data)
@@ -165,7 +165,7 @@ class ImageFragment : Fragment(), ImageGridAdapter.OnItemClickCallback,
            override fun onQueryTextSubmit(p0: String?): Boolean {
                try {
                    imageViewModel.getSearchImage(p0.toString(), page).observe(viewLifecycleOwner, {
-                       imageGridAdapter.setData(it)
+                       imageGridAdapter.setData(it!!)
 
                    })
                } catch (e: Exception) {

@@ -5,12 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pexels.data.VideosItem
-import com.example.pexels.network.ApiClient
+import com.example.pexels.repository.Repository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
+import javax.inject.Inject
 
-class VideoViewModel: ViewModel() {
+@HiltViewModel
+class VideoViewModel @Inject constructor(private val repository: Repository) : ViewModel() {
 
     private val loading = MutableLiveData<Boolean>()
     private val status = MutableLiveData<Int>()
@@ -20,49 +23,46 @@ class VideoViewModel: ViewModel() {
         val video = MutableLiveData<ArrayList<VideosItem?>>()
         loading.value = true
         viewModelScope.launch {
-            try {
-                val data = ApiClient.getClient().getVideo(page)
-                if (data.isSuccessful) {
-                    video.value = data.body()?.videos
-                } else {
-                    status.value = data.code()
+            repository.getVideo(page).let {
+                try {
+                    val data = it.body()?.videos
+                    video.value = data
+                    loading.value = false
+                } catch (t: Throwable) {
+                    when (t) {
+                        is IOException -> message.value = t.message.toString()
+                        is HttpException -> message.value = t.message().toString()
+                        else -> message.value = "Unknow Error"
+                    }
+                    loading.value = false
                 }
-                loading.value = false
-            } catch (t: Throwable) {
-                when(t) {
-                    is IOException -> message.value = t.message.toString()
-                    is HttpException -> message.value = t.message().toString()
-                    else -> message.value = "Unknow Error"
-                }
-                loading.value = false
             }
         }
         return video
     }
 
     fun getSearchVideo(query: String, page: Int): LiveData<ArrayList<VideosItem?>> {
-        val searchvideo = MutableLiveData<ArrayList<VideosItem?>>()
+        val searchVideo = MutableLiveData<ArrayList<VideosItem?>>()
         loading.value = true
         viewModelScope.launch {
-            try {
-                val data = ApiClient.getClient().getSearchVideo(query, page)
-                if (data.isSuccessful) {
-                    searchvideo.value = data.body()?.videos
-                } else {
-                    status.value = data.code()
+            repository.getSearchVideo(query, page).let {
+                try {
+                    val data = it.body()?.videos
+                    searchVideo.value = data
+                    loading.value = false
+                } catch (t: Throwable) {
+                    when (t) {
+                        is IOException -> message.value = t.message.toString()
+                        is HttpException -> message.value = t.message().toString()
+                        else -> message.value = "Unknow Error"
+                    }
+                    loading.value = false
                 }
-                loading.value = false
-            } catch (t: Throwable) {
-                when(t) {
-                    is IOException -> message.value = t.message.toString()
-                    is HttpException -> message.value = t.message().toString()
-                    else -> message.value = "Unknow Error"
-                }
-                loading.value = false
             }
         }
-        return searchvideo
+        return searchVideo
     }
+
 
     fun getLoading(): LiveData<Boolean> = loading
     fun getStatus(): LiveData<Int> = status

@@ -12,9 +12,6 @@ import com.example.pexels.databinding.ActivityVideoDetailBinding
 import android.widget.Toast
 
 
-
-
-
 class VideoDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityVideoDetailBinding

@@ -11,7 +11,9 @@ import com.example.pexels.R
 import com.example.pexels.databinding.ActivityMainBinding
 import com.example.pexels.fragment.ImageFragment
 import com.example.pexels.fragment.VideoFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
